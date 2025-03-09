@@ -1,0 +1,5 @@
+---
+source: crates/const-struct-version/src/lib.rs
+expression: version
+---
+09ea290fcced6ccfc529fd6e2231c1505d7a20fb

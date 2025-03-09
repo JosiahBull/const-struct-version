@@ -1,0 +1,8 @@
+error: proc-macro derive panicked
+ --> /tests/expand/fail/union_not_supported.rs:3:10
+  |
+3 | #[derive(StructVersion)]
+  |          ^^^^^^^^^^^^^
+  |
+  = help: message: not implemented: Unions are not supported - you must implement StructVersion manually.
+error: could not compile `<CRATE>` (bin "<BIN>") due to 1 previous error
