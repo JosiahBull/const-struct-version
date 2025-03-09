@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use const_struct_version::StructVersion;
 
 #[derive(StructVersion)]
@@ -13,6 +15,7 @@ struct NestedStruct2 {
     b: f32,
 }
 
-fn main() {
+fn test_nested_structs_work() {
     let version = <NestedStruct as StructVersion>::version();
+    insta::assert_debug_snapshot!(version);
 }

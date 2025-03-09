@@ -1,0 +1,5 @@
+---
+source: crates/const-struct-version/tests/generic_struct.rs
+expression: version
+---
+"29e58e20ca9432024b9fd41a3998863d5aa47c41"

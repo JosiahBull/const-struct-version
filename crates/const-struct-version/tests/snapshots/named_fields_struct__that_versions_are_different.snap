@@ -1,0 +1,5 @@
+---
+source: crates/const-struct-version/tests/named_fields_struct.rs
+expression: version
+---
+"ea02a3d105c8428c7dd5b24e05548548b41aa72e"

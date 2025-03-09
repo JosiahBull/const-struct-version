@@ -1,7 +1,9 @@
 #![cfg_attr(rustfmt, rustfmt_skip)]
+#![allow(dead_code)]
 use const_struct_version::StructVersion;
 struct TreeNode {
     value: i32,
+    #[allow(clippy::vec_box)]
     children: Vec<Box<TreeNode>>,
 }
 #[doc(hidden)]
@@ -42,9 +44,50 @@ impl TreeNode {
         VERSION.get_or_init(|| <Self as _const_struct_version::StructVersion>::version())
     }
 }
-#[allow(dead_code)]
-fn main() {
+fn test_tree_node_works() {
     let version = <TreeNode as StructVersion>::version();
+    ::insta::_macro_support::assert_snapshot(
+            (
+                ::insta::_macro_support::AutoName,
+                #[allow(clippy::redundant_closure_call)]
+                (|v| ::alloc::__export::must_use({
+                    let res = ::alloc::fmt::format(format_args!("{0:#?}", v));
+                    res
+                }))(&version)
+                    .as_str(),
+            )
+                .into(),
+            {
+                use ::insta::_macro_support::{env, option_env};
+                const WORKSPACE_ROOT: ::insta::_macro_support::Workspace = if let Some(
+                    root,
+                ) = ::core::option::Option::None::<&'static str> {
+                    ::insta::_macro_support::Workspace::UseAsIs(root)
+                } else {
+                    ::insta::_macro_support::Workspace::DetectWithCargo(
+                        "/workspaces/const-struct-version/target/tests/const-struct-version_b539mcipdmp",
+                    )
+                };
+                ::insta::_macro_support::get_cargo_workspace(WORKSPACE_ROOT)
+            }
+                .as_path(),
+            {
+                fn f() {}
+                fn type_name_of_val<T>(_: T) -> &'static str {
+                    ::insta::_macro_support::any::type_name::<T>()
+                }
+                let mut name = type_name_of_val(f).strip_suffix("::f").unwrap_or("");
+                while let Some(rest) = name.strip_suffix("::{{closure}}") {
+                    name = rest;
+                }
+                name
+            },
+            "const_struct_version_fj1k96il9nj",
+            "/workspaces/const-struct-version/crates/const-struct-version/tests/expand/pass/recursive_struct.rs",
+            14u32,
+            "version",
+        )
+        .unwrap();
 }
 #[rustc_main]
 #[coverage(off)]

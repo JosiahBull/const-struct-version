@@ -1,0 +1,5 @@
+---
+source: crates/const-struct-version/tests/enum_unit_variants.rs
+expression: version2
+---
+"eb28d7ef234301a3371720ea0d790df1a9c4363a"

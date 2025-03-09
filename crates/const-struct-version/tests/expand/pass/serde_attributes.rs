@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use const_struct_version::StructVersion;
 
 #[derive(StructVersion, serde::Deserialize)]
@@ -26,6 +28,10 @@ fn main() {
     let version = <User as StructVersion>::version();
     let version2 = <User2 as StructVersion>::version();
     let version3 = <User3 as StructVersion>::version();
+
+    insta::assert_debug_snapshot!(version);
+    insta::assert_debug_snapshot!(version2);
+    insta::assert_debug_snapshot!(version3);
 
     // Ensure all are different.
     assert_ne!(version, version2);

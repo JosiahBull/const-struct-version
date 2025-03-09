@@ -1,0 +1,5 @@
+---
+source: crates/const-struct-version/tests/serde_attributes.rs
+expression: version2
+---
+"db3d44a06ec3fa01feaac420a51902f92a76f9f3"
