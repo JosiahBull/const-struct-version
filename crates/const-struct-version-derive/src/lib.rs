@@ -1,7 +1,12 @@
+#![doc = include_str!("../README.md")]
+#![deny(clippy::all, clippy::pedantic)]
+#![allow(clippy::uninlined_format_args, clippy::needless_doctest_main)]
+
 use proc_macro::TokenStream;
 use quote::{ToTokens, quote};
 use syn::{
     Attribute, Data, DeriveInput, Fields, GenericParam, parse_macro_input, spanned::Spanned,
+    token::Brace,
 };
 
 /// Derive macro implementation for the `StructVersion` trait
@@ -26,7 +31,7 @@ pub fn derive_struct_version(input: TokenStream) -> TokenStream {
                 Some(fields) => {
                     let field_code = generate_struct_fields_code(&syn::FieldsNamed {
                         named: fields.clone(),
-                        brace_token: Default::default(),
+                        brace_token: Brace::default(),
                     });
                     (process_attrs(&input.attrs), field_code)
                 }
@@ -89,7 +94,7 @@ pub fn derive_struct_version(input: TokenStream) -> TokenStream {
 /// Generate hash update code for struct fields
 fn generate_struct_fields_code(fields: &syn::FieldsNamed) -> proc_macro2::TokenStream {
     let field_code = fields.named.iter().enumerate().map(|(index, field)| {
-        let field_name_str = field.ident.as_ref().map(|x| x.to_string()).unwrap_or(index.to_string());
+        let field_name_str = field.ident.as_ref().map(std::string::ToString::to_string).unwrap_or(index.to_string());
         let field_attrs = process_attrs(&field.attrs);
         let field_ty = &field.ty;
 

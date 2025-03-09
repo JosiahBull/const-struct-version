@@ -1,3 +1,7 @@
+#![doc = include_str!("../README.md")]
+#![deny(clippy::all, clippy::pedantic)]
+#![allow(clippy::uninlined_format_args, clippy::needless_doctest_main)]
+
 use std::any::type_name;
 
 use sha1::Digest;
