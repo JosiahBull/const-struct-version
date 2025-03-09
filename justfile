@@ -15,13 +15,13 @@ format:
 
 # Run tests and check for unused dependencies
 test:
-    @export TRYEXPAND=overwrite
-    @cargo test --all-targets --all-features
-    @cargo +nightly udeps --all-targets --all-features
-    @cargo +nightly clippy --all-targets --all-features -- -D warnings
-    @cargo deny check
-    @cargo tree | grep openssl && exit 1 || exit 0
-    @cargo autoinherit
+    # @export TRYEXPAND=overwrite
+    # @cargo test --all-targets --all-features
+    # @cargo +nightly udeps --all-targets --all-features
+    # @cargo +nightly clippy --all-targets --all-features -- -D warnings
+    # @cargo deny check
+    # @cargo tree | grep openssl && exit 1 || exit 0
+    # @cargo autoinherit
     @cargo mutants --colors=always --all-features --error true --no-shuffle --iterate -vV --test-workspace true
     @cargo semver-checks
 

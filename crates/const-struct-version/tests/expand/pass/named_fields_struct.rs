@@ -15,7 +15,6 @@ struct NamedFieldsStruct2 {
     a: u32,
 }
 
-#[test]
 fn main() {
     let version = <NamedFieldsStruct as StructVersion>::version();
     let version2 = <NamedFieldsStruct2 as StructVersion>::version();

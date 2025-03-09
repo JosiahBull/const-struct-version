@@ -18,7 +18,6 @@ enum EnumDiscriminants3 {
     B = 1,
 }
 
-#[test]
 fn main() {
     let version = <EnumDiscriminants as StructVersion>::version();
     let version2 = <EnumDiscriminants2 as StructVersion>::version();

@@ -11,7 +11,6 @@ struct ConcreteType {
     data: GenericContainer<u32>,
 }
 
-#[test]
 fn main() {
     let version = <ConcreteType as StructVersion>::version();
 }
