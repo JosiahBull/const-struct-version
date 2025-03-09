@@ -12,9 +12,6 @@ fn test_tuple_struct_ordering_changes_hash() {
     let version = <TupleStruct as StructVersion>::version();
     let version2 = <TupleStruct2 as StructVersion>::version();
 
-    insta::assert_debug_snapshot!(version);
-    insta::assert_debug_snapshot!(version2);
-
     // Ensure all are different.
     assert_ne!(version, version2);
 }

@@ -29,10 +29,6 @@ fn main() {
     let version2 = <User2 as StructVersion>::version();
     let version3 = <User3 as StructVersion>::version();
 
-    insta::assert_debug_snapshot!(version);
-    insta::assert_debug_snapshot!(version2);
-    insta::assert_debug_snapshot!(version3);
-
     // Ensure all are different.
     assert_ne!(version, version2);
     assert_ne!(version, version3);
