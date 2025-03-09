@@ -6,8 +6,8 @@ members = [
 resolver = "3"
 
 [workspace.dependencies]
-const-struct-version = { path = "./crates/const-struct-version", version = "0.1.0" }
-const-struct-version-derive = { path = "./crates/const-struct-version-derive", version = "0.1.0" }
+const-struct-version = { path = "./crates/const-struct-version", version = "0.1.3" }
+const-struct-version-derive = { path = "./crates/const-struct-version-derive", version = "0.1.3" }
 indexmap = "2"
 insta = "1"
 mutants = "0.0.3"
