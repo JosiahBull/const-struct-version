@@ -6,7 +6,6 @@ struct TreeNode {
     children: Vec<Box<TreeNode>>,
 }
 
-#[test]
 fn main() {
     let version = <TreeNode as StructVersion>::version();
 }

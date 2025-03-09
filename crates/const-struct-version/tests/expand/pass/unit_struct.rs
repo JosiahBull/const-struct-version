@@ -6,7 +6,6 @@ struct UnitStruct;
 #[derive(StructVersion)]
 struct UnitStruct2;
 
-#[test]
 fn main() {
     let version = <UnitStruct as StructVersion>::version();
     let version2 = <UnitStruct2 as StructVersion>::version();

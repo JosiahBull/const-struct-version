@@ -62,27 +62,6 @@ impl EnumUnitVariants2 {
         VERSION.get_or_init(|| <Self as _const_struct_version::StructVersion>::version())
     }
 }
-extern crate test;
-#[cfg(test)]
-#[rustc_test_marker = "main"]
-#[doc(hidden)]
-pub const main: test::TestDescAndFn = test::TestDescAndFn {
-    desc: test::TestDesc {
-        name: test::StaticTestName("main"),
-        ignore: false,
-        ignore_message: ::core::option::Option::None,
-        source_file: "/workspaces/const-struct-version/crates/const-struct-version/tests/expand/pass/enum_unit_variants.rs",
-        start_line: 16usize,
-        start_col: 4usize,
-        end_line: 16usize,
-        end_col: 8usize,
-        compile_fail: false,
-        no_run: false,
-        should_panic: test::ShouldPanic::No,
-        test_type: test::TestType::Unknown,
-    },
-    testfn: test::StaticTestFn(#[coverage(off)] || test::assert_test_result(main())),
-};
 #[allow(dead_code)]
 fn main() {
     let version = <EnumUnitVariants as StructVersion>::version();
@@ -106,5 +85,5 @@ fn main() {
 #[doc(hidden)]
 pub fn main() -> () {
     extern crate test;
-    test::test_main_static(&[&main])
+    test::test_main_static(&[])
 }

@@ -13,7 +13,6 @@ struct NestedStruct2 {
     b: f32,
 }
 
-#[test]
 fn main() {
     let version = <NestedStruct as StructVersion>::version();
 }

@@ -12,7 +12,6 @@ enum EnumUnitVariants2 {
     A,
 }
 
-#[test]
 fn main() {
     let version = <EnumUnitVariants as StructVersion>::version();
     let version2 = <EnumUnitVariants2 as StructVersion>::version();

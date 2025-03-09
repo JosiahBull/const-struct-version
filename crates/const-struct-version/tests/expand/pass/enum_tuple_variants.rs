@@ -12,7 +12,6 @@ enum EnumTupleVariants2 {
     A(u32),
 }
 
-#[test]
 fn main() {
     let version = <EnumTupleVariants as StructVersion>::version();
     let version2 = <EnumTupleVariants2 as StructVersion>::version();

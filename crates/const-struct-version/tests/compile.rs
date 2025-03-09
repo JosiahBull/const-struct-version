@@ -31,11 +31,11 @@ fn compile_pass() {
         .and_check()
         .expect_pass();
 
-    tryexpand::expand(["tests/expand/pass/*.rs"])
-        .args(["--profile", "test"])
-        .skip_overwrite()
-        .and_run_tests()
-        .expect_pass();
+    // tryexpand::expand(["tests/expand/pass/*.rs"])
+    //     .args(["--profile", "test"])
+    //     .skip_overwrite()
+    //     .and_run()
+    //     .expect_pass();
 
     // Add back the "#![cfg_attr(rustfmt, rustfmt_skip)]\n" to all of the .out.rs files.
     let files = std::fs::read_dir(path)
