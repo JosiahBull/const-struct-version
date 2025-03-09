@@ -35,8 +35,12 @@ update-snapshots:
     @cargo insta accept
 
 # Publish this crate to crates.io
-publish:
-    #TODO
+publish execute:
+    @if [ "{{execute}}" != "" ]; then \
+        cargo release patch --workspace --execute; \
+    else \
+        cargo release patch --workspace; \
+    fi
 
 default:
     @just --list
