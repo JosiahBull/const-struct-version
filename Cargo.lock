@@ -150,7 +150,7 @@ dependencies = [
 
 [[package]]
 name = "const-struct-version"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "chrono",
  "const-struct-version-derive",
@@ -166,7 +166,7 @@ dependencies = [
 
 [[package]]
 name = "const-struct-version-derive"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "proc-macro2",
  "quote",
