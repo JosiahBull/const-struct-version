@@ -153,7 +153,7 @@ name = "const-struct-version"
 version = "0.1.0"
 dependencies = [
  "chrono",
- "const-struct-version-derive 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "const-struct-version-derive",
  "indexmap",
  "insta",
  "mutants",
@@ -167,17 +167,6 @@ dependencies = [
 [[package]]
 name = "const-struct-version-derive"
 version = "0.1.0"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "const-struct-version-derive"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7ab806bf89784de753ecb2a9939c7d833fd05ba9a1db9fb1b2f6144a5e055047"
 dependencies = [
  "proc-macro2",
  "quote",
