@@ -22,7 +22,7 @@ test:
     @cargo deny check
     @cargo tree | grep openssl && exit 1 || exit 0
     @cargo autoinherit
-    @cargo mutants --colors=always --all-features --error true --no-shuffle --iterate -vV --in-place --test-workspace true
+    @cargo mutants --colors=always --all-features --error true --no-shuffle --iterate -vV --test-workspace true
     @cargo semver-checks
 
 clean:
