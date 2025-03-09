@@ -1,0 +1,5 @@
+---
+source: crates/const-struct-version/tests/tuple_struct.rs
+expression: version
+---
+"559af3f916a6a7b7b8282ee38df0f9fd930375da"

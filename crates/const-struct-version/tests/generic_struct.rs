@@ -13,6 +13,7 @@ struct ConcreteType {
     data: GenericContainer<u32>,
 }
 
+#[test]
 fn test_generic_struct() {
     let version = <ConcreteType as StructVersion>::version();
     insta::assert_debug_snapshot!(version);

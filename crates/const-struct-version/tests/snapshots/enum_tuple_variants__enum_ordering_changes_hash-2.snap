@@ -1,0 +1,5 @@
+---
+source: crates/const-struct-version/tests/enum_tuple_variants.rs
+expression: version2
+---
+"ebcd1d8ac91cae630ff11756282ae836aa7af547"

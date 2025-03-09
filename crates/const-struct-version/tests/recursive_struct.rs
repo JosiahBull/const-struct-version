@@ -9,6 +9,7 @@ struct TreeNode {
     children: Vec<Box<TreeNode>>,
 }
 
+#[test]
 fn test_tree_node_works() {
     let version = <TreeNode as StructVersion>::version();
     insta::assert_debug_snapshot!(version);

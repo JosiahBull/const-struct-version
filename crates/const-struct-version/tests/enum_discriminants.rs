@@ -1,4 +1,4 @@
-#![allow(de)]
+#![allow(dead_code)]
 
 use const_struct_version::StructVersion;
 
@@ -20,6 +20,7 @@ enum EnumDiscriminants3 {
     B = 1,
 }
 
+#[test]
 fn test_enum_discriminats_changes_hash() {
     let version = <EnumDiscriminants as StructVersion>::version();
     let version2 = <EnumDiscriminants2 as StructVersion>::version();

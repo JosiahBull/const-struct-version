@@ -1,0 +1,5 @@
+---
+source: crates/const-struct-version/tests/recursive_struct.rs
+expression: version
+---
+"8573a9255d91d5d4da49cf382937319df9363981"

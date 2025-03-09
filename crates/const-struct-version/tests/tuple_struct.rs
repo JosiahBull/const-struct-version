@@ -8,6 +8,7 @@ struct TupleStruct(u32, f32);
 #[derive(StructVersion)]
 struct TupleStruct2(f32, u32);
 
+#[test]
 fn test_tuple_struct_ordering_changes_hash() {
     let version = <TupleStruct as StructVersion>::version();
     let version2 = <TupleStruct2 as StructVersion>::version();

@@ -3,14 +3,21 @@
 use const_struct_version::StructVersion;
 
 #[derive(StructVersion)]
-struct TupleStruct(u32, f32);
+enum EnumUnitVariants {
+    A,
+    B,
+}
 
 #[derive(StructVersion)]
-struct TupleStruct2(f32, u32);
+enum EnumUnitVariants2 {
+    B,
+    A,
+}
 
-fn test_tuple_struct_ordering_changes_hash() {
-    let version = <TupleStruct as StructVersion>::version();
-    let version2 = <TupleStruct2 as StructVersion>::version();
+#[test]
+fn test_enum_unit_variants_changes_hash() {
+    let version = <EnumUnitVariants as StructVersion>::version();
+    let version2 = <EnumUnitVariants2 as StructVersion>::version();
 
     insta::assert_debug_snapshot!(version);
     insta::assert_debug_snapshot!(version2);

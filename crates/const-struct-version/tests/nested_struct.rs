@@ -15,6 +15,7 @@ struct NestedStruct2 {
     b: f32,
 }
 
+#[test]
 fn test_nested_structs_work() {
     let version = <NestedStruct as StructVersion>::version();
     insta::assert_debug_snapshot!(version);

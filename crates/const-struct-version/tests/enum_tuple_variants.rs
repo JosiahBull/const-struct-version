@@ -14,6 +14,7 @@ enum EnumTupleVariants2 {
     A(u32),
 }
 
+#[test]
 fn test_enum_ordering_changes_hash() {
     let version = <EnumTupleVariants as StructVersion>::version();
     let version2 = <EnumTupleVariants2 as StructVersion>::version();

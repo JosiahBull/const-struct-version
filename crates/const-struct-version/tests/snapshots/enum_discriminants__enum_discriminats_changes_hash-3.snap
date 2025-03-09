@@ -1,0 +1,5 @@
+---
+source: crates/const-struct-version/tests/enum_discriminants.rs
+expression: version3
+---
+"922ee65ac6797530bd85edefd3436c4a63a08b37"

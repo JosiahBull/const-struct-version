@@ -17,6 +17,7 @@ struct NamedFieldsStruct2 {
     a: u32,
 }
 
+#[test]
 fn test_that_versions_are_different() {
     let version = <NamedFieldsStruct as StructVersion>::version();
     let version2 = <NamedFieldsStruct2 as StructVersion>::version();

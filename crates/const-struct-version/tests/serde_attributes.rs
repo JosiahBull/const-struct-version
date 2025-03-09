@@ -24,6 +24,7 @@ struct User3 {
     login_count: u32,
 }
 
+#[test]
 fn main() {
     let version = <User as StructVersion>::version();
     let version2 = <User2 as StructVersion>::version();

@@ -1,0 +1,5 @@
+---
+source: crates/const-struct-version/tests/nested_struct.rs
+expression: version
+---
+"3ff39bc1fd9392b4481054a278d631b9f990171f"
