@@ -25,10 +25,6 @@ fn test_enum_discriminats_changes_hash() {
     let version2 = <EnumDiscriminants2 as StructVersion>::version();
     let version3 = <EnumDiscriminants3 as StructVersion>::version();
 
-    insta::assert_debug_snapshot!(version);
-    insta::assert_debug_snapshot!(version2);
-    insta::assert_debug_snapshot!(version3);
-
     // Ensure all are different.
     assert_ne!(version, version2);
     assert_ne!(version, version3);

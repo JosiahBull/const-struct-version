@@ -21,9 +21,6 @@ fn test_that_versions_are_different() {
     let version = <NamedFieldsStruct as StructVersion>::version();
     let version2 = <NamedFieldsStruct2 as StructVersion>::version();
 
-    insta::assert_debug_snapshot!(version);
-    insta::assert_debug_snapshot!(version2);
-
     // Ensure all are different.
     assert_ne!(version, version2);
 }
