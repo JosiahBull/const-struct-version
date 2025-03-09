@@ -41,7 +41,7 @@ jobs:
           rustc --version
 
       - name: Check for auto-inherited dependencies
-        run: cargo +nightly autoinherit --all-targets --all-features
+        run: cargo +nightly autoinherit --all-features
 
       - name: Check for unused dependencies
         run: cargo +nightly udeps --all-targets --all-features
