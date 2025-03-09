@@ -1,3 +1,4 @@
+#![cfg_attr(rustfmt, rustfmt_skip)]
 use const_struct_version::StructVersion;
 struct TupleStruct(u32, f32);
 #[doc(hidden)]
@@ -10,9 +11,15 @@ const _: () = {
         fn version() -> String {
             let mut hasher = _const_struct_version::__private::sha1::Sha1::new();
             hasher.update("0");
-            hasher.update(<u32 as _const_struct_version::StructVersion>::version().as_bytes());
+            hasher
+                .update(
+                    <u32 as _const_struct_version::StructVersion>::version().as_bytes(),
+                );
             hasher.update("1");
-            hasher.update(<f32 as _const_struct_version::StructVersion>::version().as_bytes());
+            hasher
+                .update(
+                    <f32 as _const_struct_version::StructVersion>::version().as_bytes(),
+                );
             ::alloc::__export::must_use({
                 let res = ::alloc::fmt::format(format_args!("{0:x}", hasher.finalize()));
                 res
@@ -40,9 +47,15 @@ const _: () = {
         fn version() -> String {
             let mut hasher = _const_struct_version::__private::sha1::Sha1::new();
             hasher.update("0");
-            hasher.update(<f32 as _const_struct_version::StructVersion>::version().as_bytes());
+            hasher
+                .update(
+                    <f32 as _const_struct_version::StructVersion>::version().as_bytes(),
+                );
             hasher.update("1");
-            hasher.update(<u32 as _const_struct_version::StructVersion>::version().as_bytes());
+            hasher
+                .update(
+                    <u32 as _const_struct_version::StructVersion>::version().as_bytes(),
+                );
             ::alloc::__export::must_use({
                 let res = ::alloc::fmt::format(format_args!("{0:x}", hasher.finalize()));
                 res
@@ -78,10 +91,7 @@ pub const main: test::TestDescAndFn = test::TestDescAndFn {
         should_panic: test::ShouldPanic::No,
         test_type: test::TestType::Unknown,
     },
-    testfn: test::StaticTestFn(
-        #[coverage(off)]
-        || test::assert_test_result(main()),
-    ),
+    testfn: test::StaticTestFn(#[coverage(off)] || test::assert_test_result(main())),
 };
 #[allow(dead_code)]
 fn main() {
