@@ -1,3 +1,4 @@
+#![cfg_attr(rustfmt, rustfmt_skip)]
 use const_struct_version::StructVersion;
 enum EnumUnitVariants {
     A,
@@ -80,10 +81,7 @@ pub const main: test::TestDescAndFn = test::TestDescAndFn {
         should_panic: test::ShouldPanic::No,
         test_type: test::TestType::Unknown,
     },
-    testfn: test::StaticTestFn(
-        #[coverage(off)]
-        || test::assert_test_result(main()),
-    ),
+    testfn: test::StaticTestFn(#[coverage(off)] || test::assert_test_result(main())),
 };
 #[allow(dead_code)]
 fn main() {

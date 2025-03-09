@@ -1,3 +1,4 @@
+#![cfg_attr(rustfmt, rustfmt_skip)]
 use const_struct_version::StructVersion;
 pub struct PublicStruct {
     pub field: u32,
@@ -12,7 +13,10 @@ const _: () = {
         fn version() -> String {
             let mut hasher = _const_struct_version::__private::sha1::Sha1::new();
             hasher.update("field");
-            hasher.update(<u32 as _const_struct_version::StructVersion>::version().as_bytes());
+            hasher
+                .update(
+                    <u32 as _const_struct_version::StructVersion>::version().as_bytes(),
+                );
             ::alloc::__export::must_use({
                 let res = ::alloc::fmt::format(format_args!("{0:x}", hasher.finalize()));
                 res
@@ -42,7 +46,10 @@ const _: () = {
         fn version() -> String {
             let mut hasher = _const_struct_version::__private::sha1::Sha1::new();
             hasher.update("field");
-            hasher.update(<u32 as _const_struct_version::StructVersion>::version().as_bytes());
+            hasher
+                .update(
+                    <u32 as _const_struct_version::StructVersion>::version().as_bytes(),
+                );
             ::alloc::__export::must_use({
                 let res = ::alloc::fmt::format(format_args!("{0:x}", hasher.finalize()));
                 res
@@ -72,7 +79,10 @@ const _: () = {
         fn version() -> String {
             let mut hasher = _const_struct_version::__private::sha1::Sha1::new();
             hasher.update("field");
-            hasher.update(<u32 as _const_struct_version::StructVersion>::version().as_bytes());
+            hasher
+                .update(
+                    <u32 as _const_struct_version::StructVersion>::version().as_bytes(),
+                );
             ::alloc::__export::must_use({
                 let res = ::alloc::fmt::format(format_args!("{0:x}", hasher.finalize()));
                 res

@@ -1,3 +1,4 @@
+#![cfg_attr(rustfmt, rustfmt_skip)]
 use const_struct_version::StructVersion;
 #[serde(rename_all = "camelCase")]
 struct User {
@@ -14,16 +15,25 @@ const _: () = {
     impl _const_struct_version::StructVersion for User {
         fn version() -> String {
             let mut hasher = _const_struct_version::__private::sha1::Sha1::new();
-            _const_struct_version::__private::execute_if_serde_enabled(&mut hasher, |hasher| {
-                hasher.update("serde #[serde(rename_all = \"camelCase\")]")
-            });
+            _const_struct_version::__private::execute_if_serde_enabled(
+                &mut hasher,
+                |hasher| hasher.update("serde #[serde(rename_all = \"camelCase\")]"),
+            );
             hasher.update("id");
-            _const_struct_version::__private::execute_if_serde_enabled(&mut hasher, |hasher| {
-                hasher.update("serde #[serde(rename = \"userId\")]")
-            });
-            hasher.update(<String as _const_struct_version::StructVersion>::version().as_bytes());
+            _const_struct_version::__private::execute_if_serde_enabled(
+                &mut hasher,
+                |hasher| hasher.update("serde #[serde(rename = \"userId\")]"),
+            );
+            hasher
+                .update(
+                    <String as _const_struct_version::StructVersion>::version()
+                        .as_bytes(),
+                );
             hasher.update("login_count");
-            hasher.update(<u32 as _const_struct_version::StructVersion>::version().as_bytes());
+            hasher
+                .update(
+                    <u32 as _const_struct_version::StructVersion>::version().as_bytes(),
+                );
             ::alloc::__export::must_use({
                 let res = ::alloc::fmt::format(format_args!("{0:x}", hasher.finalize()));
                 res
@@ -47,7 +57,9 @@ const _: () = {
     extern crate serde as _serde;
     #[automatically_derived]
     impl<'de> _serde::Deserialize<'de> for User {
-        fn deserialize<__D>(__deserializer: __D) -> _serde::__private::Result<Self, __D::Error>
+        fn deserialize<__D>(
+            __deserializer: __D,
+        ) -> _serde::__private::Result<Self, __D::Error>
         where
             __D: _serde::Deserializer<'de>,
         {
@@ -67,9 +79,15 @@ const _: () = {
                     &self,
                     __formatter: &mut _serde::__private::Formatter,
                 ) -> _serde::__private::fmt::Result {
-                    _serde::__private::Formatter::write_str(__formatter, "field identifier")
+                    _serde::__private::Formatter::write_str(
+                        __formatter,
+                        "field identifier",
+                    )
                 }
-                fn visit_u64<__E>(self, __value: u64) -> _serde::__private::Result<Self::Value, __E>
+                fn visit_u64<__E>(
+                    self,
+                    __value: u64,
+                ) -> _serde::__private::Result<Self::Value, __E>
                 where
                     __E: _serde::de::Error,
                 {
@@ -115,7 +133,10 @@ const _: () = {
                 where
                     __D: _serde::Deserializer<'de>,
                 {
-                    _serde::Deserializer::deserialize_identifier(__deserializer, __FieldVisitor)
+                    _serde::Deserializer::deserialize_identifier(
+                        __deserializer,
+                        __FieldVisitor,
+                    )
                 }
             }
             #[doc(hidden)]
@@ -140,23 +161,30 @@ const _: () = {
                 where
                     __A: _serde::de::SeqAccess<'de>,
                 {
-                    let __field0 = match _serde::de::SeqAccess::next_element::<String>(&mut __seq)?
-                    {
+                    let __field0 = match _serde::de::SeqAccess::next_element::<
+                        String,
+                    >(&mut __seq)? {
                         _serde::__private::Some(__value) => __value,
                         _serde::__private::None => {
-                            return _serde::__private::Err(_serde::de::Error::invalid_length(
-                                0usize,
-                                &"struct User with 2 elements",
-                            ));
+                            return _serde::__private::Err(
+                                _serde::de::Error::invalid_length(
+                                    0usize,
+                                    &"struct User with 2 elements",
+                                ),
+                            );
                         }
                     };
-                    let __field1 = match _serde::de::SeqAccess::next_element::<u32>(&mut __seq)? {
+                    let __field1 = match _serde::de::SeqAccess::next_element::<
+                        u32,
+                    >(&mut __seq)? {
                         _serde::__private::Some(__value) => __value,
                         _serde::__private::None => {
-                            return _serde::__private::Err(_serde::de::Error::invalid_length(
-                                1usize,
-                                &"struct User with 2 elements",
-                            ));
+                            return _serde::__private::Err(
+                                _serde::de::Error::invalid_length(
+                                    1usize,
+                                    &"struct User with 2 elements",
+                                ),
+                            );
                         }
                     };
                     _serde::__private::Ok(User {
@@ -174,24 +202,19 @@ const _: () = {
                 {
                     let mut __field0: _serde::__private::Option<String> = _serde::__private::None;
                     let mut __field1: _serde::__private::Option<u32> = _serde::__private::None;
-                    while let _serde::__private::Some(__key) =
-                        _serde::de::MapAccess::next_key::<__Field>(&mut __map)?
-                    {
+                    while let _serde::__private::Some(__key) = _serde::de::MapAccess::next_key::<
+                        __Field,
+                    >(&mut __map)? {
                         match __key {
                             __Field::__field0 => {
                                 if _serde::__private::Option::is_some(&__field0) {
                                     return _serde::__private::Err(
-                                        <__A::Error as _serde::de::Error>::duplicate_field(
-                                            "userId",
-                                        ),
+                                        <__A::Error as _serde::de::Error>::duplicate_field("userId"),
                                     );
                                 }
-                                __field0 =
-                                    _serde::__private::Some(_serde::de::MapAccess::next_value::<
-                                        String,
-                                    >(
-                                        &mut __map
-                                    )?);
+                                __field0 = _serde::__private::Some(
+                                    _serde::de::MapAccess::next_value::<String>(&mut __map)?,
+                                );
                             }
                             __Field::__field1 => {
                                 if _serde::__private::Option::is_some(&__field1) {
@@ -201,23 +224,22 @@ const _: () = {
                                         ),
                                     );
                                 }
-                                __field1 =
-                                    _serde::__private::Some(_serde::de::MapAccess::next_value::<
-                                        u32,
-                                    >(
-                                        &mut __map
-                                    )?);
+                                __field1 = _serde::__private::Some(
+                                    _serde::de::MapAccess::next_value::<u32>(&mut __map)?,
+                                );
                             }
                             _ => {
-                                let _ = _serde::de::MapAccess::next_value::<_serde::de::IgnoredAny>(
-                                    &mut __map,
-                                )?;
+                                let _ = _serde::de::MapAccess::next_value::<
+                                    _serde::de::IgnoredAny,
+                                >(&mut __map)?;
                             }
                         }
                     }
                     let __field0 = match __field0 {
                         _serde::__private::Some(__field0) => __field0,
-                        _serde::__private::None => _serde::__private::de::missing_field("userId")?,
+                        _serde::__private::None => {
+                            _serde::__private::de::missing_field("userId")?
+                        }
                     };
                     let __field1 = match __field1 {
                         _serde::__private::Some(__field1) => __field1,
@@ -260,12 +282,20 @@ const _: () = {
         fn version() -> String {
             let mut hasher = _const_struct_version::__private::sha1::Sha1::new();
             hasher.update("id");
-            _const_struct_version::__private::execute_if_serde_enabled(&mut hasher, |hasher| {
-                hasher.update("serde #[serde(rename = \"userId\")]")
-            });
-            hasher.update(<String as _const_struct_version::StructVersion>::version().as_bytes());
+            _const_struct_version::__private::execute_if_serde_enabled(
+                &mut hasher,
+                |hasher| hasher.update("serde #[serde(rename = \"userId\")]"),
+            );
+            hasher
+                .update(
+                    <String as _const_struct_version::StructVersion>::version()
+                        .as_bytes(),
+                );
             hasher.update("login_count");
-            hasher.update(<u32 as _const_struct_version::StructVersion>::version().as_bytes());
+            hasher
+                .update(
+                    <u32 as _const_struct_version::StructVersion>::version().as_bytes(),
+                );
             ::alloc::__export::must_use({
                 let res = ::alloc::fmt::format(format_args!("{0:x}", hasher.finalize()));
                 res
@@ -289,7 +319,9 @@ const _: () = {
     extern crate serde as _serde;
     #[automatically_derived]
     impl<'de> _serde::Deserialize<'de> for User2 {
-        fn deserialize<__D>(__deserializer: __D) -> _serde::__private::Result<Self, __D::Error>
+        fn deserialize<__D>(
+            __deserializer: __D,
+        ) -> _serde::__private::Result<Self, __D::Error>
         where
             __D: _serde::Deserializer<'de>,
         {
@@ -309,9 +341,15 @@ const _: () = {
                     &self,
                     __formatter: &mut _serde::__private::Formatter,
                 ) -> _serde::__private::fmt::Result {
-                    _serde::__private::Formatter::write_str(__formatter, "field identifier")
+                    _serde::__private::Formatter::write_str(
+                        __formatter,
+                        "field identifier",
+                    )
                 }
-                fn visit_u64<__E>(self, __value: u64) -> _serde::__private::Result<Self::Value, __E>
+                fn visit_u64<__E>(
+                    self,
+                    __value: u64,
+                ) -> _serde::__private::Result<Self::Value, __E>
                 where
                     __E: _serde::de::Error,
                 {
@@ -357,7 +395,10 @@ const _: () = {
                 where
                     __D: _serde::Deserializer<'de>,
                 {
-                    _serde::Deserializer::deserialize_identifier(__deserializer, __FieldVisitor)
+                    _serde::Deserializer::deserialize_identifier(
+                        __deserializer,
+                        __FieldVisitor,
+                    )
                 }
             }
             #[doc(hidden)]
@@ -382,23 +423,30 @@ const _: () = {
                 where
                     __A: _serde::de::SeqAccess<'de>,
                 {
-                    let __field0 = match _serde::de::SeqAccess::next_element::<String>(&mut __seq)?
-                    {
+                    let __field0 = match _serde::de::SeqAccess::next_element::<
+                        String,
+                    >(&mut __seq)? {
                         _serde::__private::Some(__value) => __value,
                         _serde::__private::None => {
-                            return _serde::__private::Err(_serde::de::Error::invalid_length(
-                                0usize,
-                                &"struct User2 with 2 elements",
-                            ));
+                            return _serde::__private::Err(
+                                _serde::de::Error::invalid_length(
+                                    0usize,
+                                    &"struct User2 with 2 elements",
+                                ),
+                            );
                         }
                     };
-                    let __field1 = match _serde::de::SeqAccess::next_element::<u32>(&mut __seq)? {
+                    let __field1 = match _serde::de::SeqAccess::next_element::<
+                        u32,
+                    >(&mut __seq)? {
                         _serde::__private::Some(__value) => __value,
                         _serde::__private::None => {
-                            return _serde::__private::Err(_serde::de::Error::invalid_length(
-                                1usize,
-                                &"struct User2 with 2 elements",
-                            ));
+                            return _serde::__private::Err(
+                                _serde::de::Error::invalid_length(
+                                    1usize,
+                                    &"struct User2 with 2 elements",
+                                ),
+                            );
                         }
                     };
                     _serde::__private::Ok(User2 {
@@ -416,24 +464,19 @@ const _: () = {
                 {
                     let mut __field0: _serde::__private::Option<String> = _serde::__private::None;
                     let mut __field1: _serde::__private::Option<u32> = _serde::__private::None;
-                    while let _serde::__private::Some(__key) =
-                        _serde::de::MapAccess::next_key::<__Field>(&mut __map)?
-                    {
+                    while let _serde::__private::Some(__key) = _serde::de::MapAccess::next_key::<
+                        __Field,
+                    >(&mut __map)? {
                         match __key {
                             __Field::__field0 => {
                                 if _serde::__private::Option::is_some(&__field0) {
                                     return _serde::__private::Err(
-                                        <__A::Error as _serde::de::Error>::duplicate_field(
-                                            "userId",
-                                        ),
+                                        <__A::Error as _serde::de::Error>::duplicate_field("userId"),
                                     );
                                 }
-                                __field0 =
-                                    _serde::__private::Some(_serde::de::MapAccess::next_value::<
-                                        String,
-                                    >(
-                                        &mut __map
-                                    )?);
+                                __field0 = _serde::__private::Some(
+                                    _serde::de::MapAccess::next_value::<String>(&mut __map)?,
+                                );
                             }
                             __Field::__field1 => {
                                 if _serde::__private::Option::is_some(&__field1) {
@@ -443,23 +486,22 @@ const _: () = {
                                         ),
                                     );
                                 }
-                                __field1 =
-                                    _serde::__private::Some(_serde::de::MapAccess::next_value::<
-                                        u32,
-                                    >(
-                                        &mut __map
-                                    )?);
+                                __field1 = _serde::__private::Some(
+                                    _serde::de::MapAccess::next_value::<u32>(&mut __map)?,
+                                );
                             }
                             _ => {
-                                let _ = _serde::de::MapAccess::next_value::<_serde::de::IgnoredAny>(
-                                    &mut __map,
-                                )?;
+                                let _ = _serde::de::MapAccess::next_value::<
+                                    _serde::de::IgnoredAny,
+                                >(&mut __map)?;
                             }
                         }
                     }
                     let __field0 = match __field0 {
                         _serde::__private::Some(__field0) => __field0,
-                        _serde::__private::None => _serde::__private::de::missing_field("userId")?,
+                        _serde::__private::None => {
+                            _serde::__private::de::missing_field("userId")?
+                        }
                     };
                     let __field1 = match __field1 {
                         _serde::__private::Some(__field1) => __field1,
@@ -501,13 +543,21 @@ const _: () = {
     impl _const_struct_version::StructVersion for User3 {
         fn version() -> String {
             let mut hasher = _const_struct_version::__private::sha1::Sha1::new();
-            _const_struct_version::__private::execute_if_serde_enabled(&mut hasher, |hasher| {
-                hasher.update("serde #[serde(rename_all = \"camelCase\")]")
-            });
+            _const_struct_version::__private::execute_if_serde_enabled(
+                &mut hasher,
+                |hasher| hasher.update("serde #[serde(rename_all = \"camelCase\")]"),
+            );
             hasher.update("id");
-            hasher.update(<String as _const_struct_version::StructVersion>::version().as_bytes());
+            hasher
+                .update(
+                    <String as _const_struct_version::StructVersion>::version()
+                        .as_bytes(),
+                );
             hasher.update("login_count");
-            hasher.update(<u32 as _const_struct_version::StructVersion>::version().as_bytes());
+            hasher
+                .update(
+                    <u32 as _const_struct_version::StructVersion>::version().as_bytes(),
+                );
             ::alloc::__export::must_use({
                 let res = ::alloc::fmt::format(format_args!("{0:x}", hasher.finalize()));
                 res
@@ -531,7 +581,9 @@ const _: () = {
     extern crate serde as _serde;
     #[automatically_derived]
     impl<'de> _serde::Deserialize<'de> for User3 {
-        fn deserialize<__D>(__deserializer: __D) -> _serde::__private::Result<Self, __D::Error>
+        fn deserialize<__D>(
+            __deserializer: __D,
+        ) -> _serde::__private::Result<Self, __D::Error>
         where
             __D: _serde::Deserializer<'de>,
         {
@@ -551,9 +603,15 @@ const _: () = {
                     &self,
                     __formatter: &mut _serde::__private::Formatter,
                 ) -> _serde::__private::fmt::Result {
-                    _serde::__private::Formatter::write_str(__formatter, "field identifier")
+                    _serde::__private::Formatter::write_str(
+                        __formatter,
+                        "field identifier",
+                    )
                 }
-                fn visit_u64<__E>(self, __value: u64) -> _serde::__private::Result<Self::Value, __E>
+                fn visit_u64<__E>(
+                    self,
+                    __value: u64,
+                ) -> _serde::__private::Result<Self::Value, __E>
                 where
                     __E: _serde::de::Error,
                 {
@@ -599,7 +657,10 @@ const _: () = {
                 where
                     __D: _serde::Deserializer<'de>,
                 {
-                    _serde::Deserializer::deserialize_identifier(__deserializer, __FieldVisitor)
+                    _serde::Deserializer::deserialize_identifier(
+                        __deserializer,
+                        __FieldVisitor,
+                    )
                 }
             }
             #[doc(hidden)]
@@ -624,23 +685,30 @@ const _: () = {
                 where
                     __A: _serde::de::SeqAccess<'de>,
                 {
-                    let __field0 = match _serde::de::SeqAccess::next_element::<String>(&mut __seq)?
-                    {
+                    let __field0 = match _serde::de::SeqAccess::next_element::<
+                        String,
+                    >(&mut __seq)? {
                         _serde::__private::Some(__value) => __value,
                         _serde::__private::None => {
-                            return _serde::__private::Err(_serde::de::Error::invalid_length(
-                                0usize,
-                                &"struct User3 with 2 elements",
-                            ));
+                            return _serde::__private::Err(
+                                _serde::de::Error::invalid_length(
+                                    0usize,
+                                    &"struct User3 with 2 elements",
+                                ),
+                            );
                         }
                     };
-                    let __field1 = match _serde::de::SeqAccess::next_element::<u32>(&mut __seq)? {
+                    let __field1 = match _serde::de::SeqAccess::next_element::<
+                        u32,
+                    >(&mut __seq)? {
                         _serde::__private::Some(__value) => __value,
                         _serde::__private::None => {
-                            return _serde::__private::Err(_serde::de::Error::invalid_length(
-                                1usize,
-                                &"struct User3 with 2 elements",
-                            ));
+                            return _serde::__private::Err(
+                                _serde::de::Error::invalid_length(
+                                    1usize,
+                                    &"struct User3 with 2 elements",
+                                ),
+                            );
                         }
                     };
                     _serde::__private::Ok(User3 {
@@ -658,9 +726,9 @@ const _: () = {
                 {
                     let mut __field0: _serde::__private::Option<String> = _serde::__private::None;
                     let mut __field1: _serde::__private::Option<u32> = _serde::__private::None;
-                    while let _serde::__private::Some(__key) =
-                        _serde::de::MapAccess::next_key::<__Field>(&mut __map)?
-                    {
+                    while let _serde::__private::Some(__key) = _serde::de::MapAccess::next_key::<
+                        __Field,
+                    >(&mut __map)? {
                         match __key {
                             __Field::__field0 => {
                                 if _serde::__private::Option::is_some(&__field0) {
@@ -668,12 +736,9 @@ const _: () = {
                                         <__A::Error as _serde::de::Error>::duplicate_field("id"),
                                     );
                                 }
-                                __field0 =
-                                    _serde::__private::Some(_serde::de::MapAccess::next_value::<
-                                        String,
-                                    >(
-                                        &mut __map
-                                    )?);
+                                __field0 = _serde::__private::Some(
+                                    _serde::de::MapAccess::next_value::<String>(&mut __map)?,
+                                );
                             }
                             __Field::__field1 => {
                                 if _serde::__private::Option::is_some(&__field1) {
@@ -683,23 +748,22 @@ const _: () = {
                                         ),
                                     );
                                 }
-                                __field1 =
-                                    _serde::__private::Some(_serde::de::MapAccess::next_value::<
-                                        u32,
-                                    >(
-                                        &mut __map
-                                    )?);
+                                __field1 = _serde::__private::Some(
+                                    _serde::de::MapAccess::next_value::<u32>(&mut __map)?,
+                                );
                             }
                             _ => {
-                                let _ = _serde::de::MapAccess::next_value::<_serde::de::IgnoredAny>(
-                                    &mut __map,
-                                )?;
+                                let _ = _serde::de::MapAccess::next_value::<
+                                    _serde::de::IgnoredAny,
+                                >(&mut __map)?;
                             }
                         }
                     }
                     let __field0 = match __field0 {
                         _serde::__private::Some(__field0) => __field0,
-                        _serde::__private::None => _serde::__private::de::missing_field("id")?,
+                        _serde::__private::None => {
+                            _serde::__private::de::missing_field("id")?
+                        }
                     };
                     let __field1 = match __field1 {
                         _serde::__private::Some(__field1) => __field1,
@@ -746,10 +810,7 @@ pub const main: test::TestDescAndFn = test::TestDescAndFn {
         should_panic: test::ShouldPanic::No,
         test_type: test::TestType::Unknown,
     },
-    testfn: test::StaticTestFn(
-        #[coverage(off)]
-        || test::assert_test_result(main()),
-    ),
+    testfn: test::StaticTestFn(#[coverage(off)] || test::assert_test_result(main())),
 };
 #[allow(dead_code)]
 fn main() {
